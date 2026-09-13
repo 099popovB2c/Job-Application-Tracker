@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Job Application Tracker</h1>
+        <p>Track applications without spreadsheets or accounts.</p>
+      </div>
+      <button id="exportCsv" class="ghost">Export CSV</button>
+    </header>
+
+    <section class="capture-card">
+      <div class="eyebrow">Current page</div>
+      <div id="currentUrl" class="current-url">Reading page…</div>
+
+      <div class="grid two">
+        <label>
+          Job title
+          <input id="title" type="text" maxlength="180" placeholder="Software Engineer">
+        </label>
+        <label>
+          Company
+          <input id="company" type="text" maxlength="140" placeholder="Company">
+        </label>
+      </div>
+
+      <div class="grid two">
+        <label>
+          Location
+          <input id="location" type="text" maxlength="140" placeholder="Paris / Remote">
+        </label>
+        <label>
+          Status
+          <select id="status">
+            <option>Saved</option>
+            <option>Applied</option>
+            <option>Interview</option>
+            <option>Offer</option>
+            <option>Rejected</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid two">
+        <label>
+          Follow-up date
+          <input id="followUpDate" type="date">
+        </label>
+        <label>
+          Source
+          <input id="source" type="text" maxlength="80" placeholder="LinkedIn, Indeed…">
+        </label>
+      </div>
+
+      <label>
+        Notes
+        <textarea id="notes" rows="3" maxlength="1500" placeholder="Salary, recruiter, interview notes…"></textarea>
+      </label>
+
+      <button id="saveCurrent" class="primary full">Save Application</button>
+      <div id="captureHint" class="hint">The current page URL is used as the application link.</div>
+    </section>
+
+    <section class="summary">
+      <div><strong id="countAll">0</strong><span>Total</span></div>
+      <div><strong id="countApplied">0</strong><span>Applied</span></div>
+      <div><strong id="countInterview">0</strong><span>Interview</span></div>
+      <div><strong id="countOffer">0</strong><span>Offer</span></div>
+    </section>
+
+    <section class="toolbar">
+      <input id="search" type="search" placeholder="Search company, job or location">
+      <select id="filterStatus">
+        <option value="All">All statuses</option>
+        <option>Saved</option>
+        <option>Applied</option>
+        <option>Interview</option>
+        <option>Offer</option>
+        <option>Rejected</option>
+      </select>
+    </section>
+
+    <section class="list-card">
+      <div class="section-head">
+        <strong>Applications</strong>
+        <span id="visibleCount">0</span>
+      </div>
+      <div id="applicationList"></div>
+    </section>
+
+    <p id="message" class="message">Everything is stored locally in your browser.</p>
+  </main>
+
+  <script src="extractor.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -2,6 +2,13 @@
 
 A privacy-first Chrome extension for tracking job applications directly from the browser.
 
+## v1.1.0
+
+- Added portable **JSON backup export**.
+- Added JSON import with **replace or merge** behavior.
+- Existing CSV export remains available.
+- Application data and reminders still stay local in the browser.
+
 ## Features
 
 - Save the current job listing page with one click.
@@ -24,6 +31,7 @@ A privacy-first Chrome extension for tracking job applications directly from the
 - Open, edit or delete tracked applications.
 - Automatic application-status history.
 - CSV export.
+- JSON backup export/import.
 - No account required.
 - No external API.
 - No backend.
@@ -36,17 +44,7 @@ When the user opens the extension, Chrome's `activeTab` and `scripting` permissi
 
 Tracked applications are stored only in `chrome.storage.local`.
 
-The extension does not send:
-
-- job applications;
-- notes;
-- browsing history;
-- cookies;
-- passwords;
-- authentication tokens;
-- recruiter information
-
-to any external server.
+The extension does not send job applications, notes, browsing history, cookies, passwords, authentication tokens or recruiter information to any external server.
 
 ## Follow-up reminders
 
@@ -69,20 +67,6 @@ The reminder check runs periodically with a Manifest V3 alarm.
 The tracker is designed to be site-independent. It can be used with LinkedIn, Indeed, Glassdoor, company career pages, Welcome to the Jungle and other normal HTTP/HTTPS job pages.
 
 Automatic field detection depends on the structure of each website, so fields always remain editable.
-
-## CSV export
-
-The CSV export contains:
-
-- job title;
-- company;
-- location;
-- status;
-- follow-up date;
-- source;
-- URL;
-- notes;
-- created and updated timestamps.
 
 ## Disclaimer
 

@@ -13,57 +13,28 @@
         <h1>Job Application Tracker</h1>
         <p>Track applications without spreadsheets or accounts.</p>
       </div>
-      <button id="exportCsv" class="ghost">Export CSV</button>
+      <div>
+        <button id="exportCsv" class="ghost">CSV</button>
+        <button id="exportJson" class="ghost">Backup</button>
+      </div>
     </header>
 
     <section class="capture-card">
       <div class="eyebrow">Current page</div>
       <div id="currentUrl" class="current-url">Reading page…</div>
-
       <div class="grid two">
-        <label>
-          Job title
-          <input id="title" type="text" maxlength="180" placeholder="Software Engineer">
-        </label>
-        <label>
-          Company
-          <input id="company" type="text" maxlength="140" placeholder="Company">
-        </label>
+        <label>Job title<input id="title" type="text" maxlength="180" placeholder="Software Engineer"></label>
+        <label>Company<input id="company" type="text" maxlength="140" placeholder="Company"></label>
       </div>
-
       <div class="grid two">
-        <label>
-          Location
-          <input id="location" type="text" maxlength="140" placeholder="Paris / Remote">
-        </label>
-        <label>
-          Status
-          <select id="status">
-            <option>Saved</option>
-            <option>Applied</option>
-            <option>Interview</option>
-            <option>Offer</option>
-            <option>Rejected</option>
-          </select>
-        </label>
+        <label>Location<input id="location" type="text" maxlength="140" placeholder="Paris / Remote"></label>
+        <label>Status<select id="status"><option>Saved</option><option>Applied</option><option>Interview</option><option>Offer</option><option>Rejected</option></select></label>
       </div>
-
       <div class="grid two">
-        <label>
-          Follow-up date
-          <input id="followUpDate" type="date">
-        </label>
-        <label>
-          Source
-          <input id="source" type="text" maxlength="80" placeholder="LinkedIn, Indeed…">
-        </label>
+        <label>Follow-up date<input id="followUpDate" type="date"></label>
+        <label>Source<input id="source" type="text" maxlength="80" placeholder="LinkedIn, Indeed…"></label>
       </div>
-
-      <label>
-        Notes
-        <textarea id="notes" rows="3" maxlength="1500" placeholder="Salary, recruiter, interview notes…"></textarea>
-      </label>
-
+      <label>Notes<textarea id="notes" rows="3" maxlength="1500" placeholder="Salary, recruiter, interview notes…"></textarea></label>
       <button id="saveCurrent" class="primary full">Save Application</button>
       <div id="captureHint" class="hint">The current page URL is used as the application link.</div>
     </section>
@@ -77,28 +48,25 @@
 
     <section class="toolbar">
       <input id="search" type="search" placeholder="Search company, job or location">
-      <select id="filterStatus">
-        <option value="All">All statuses</option>
-        <option>Saved</option>
-        <option>Applied</option>
-        <option>Interview</option>
-        <option>Offer</option>
-        <option>Rejected</option>
-      </select>
+      <select id="filterStatus"><option value="All">All statuses</option><option>Saved</option><option>Applied</option><option>Interview</option><option>Offer</option><option>Rejected</option></select>
     </section>
 
     <section class="list-card">
-      <div class="section-head">
-        <strong>Applications</strong>
-        <span id="visibleCount">0</span>
-      </div>
+      <div class="section-head"><strong>Applications</strong><span id="visibleCount">0</span></div>
       <div id="applicationList"></div>
+    </section>
+
+    <section class="capture-card">
+      <strong>Portable backup</strong>
+      <p class="hint">Export all application data to JSON or import it later.</p>
+      <button id="importJsonButton">Import JSON</button>
+      <input id="importJsonFile" type="file" accept="application/json,.json" hidden>
     </section>
 
     <p id="message" class="message">Everything is stored locally in your browser.</p>
   </main>
-
   <script src="extractor.js"></script>
   <script src="popup.js"></script>
+  <script src="backup.js"></script>
 </body>
 </html>
